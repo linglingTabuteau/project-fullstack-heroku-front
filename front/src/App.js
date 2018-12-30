@@ -3,7 +3,9 @@ import './App.css';
 import NavBar from './NavBar';
 import CarouselPhoto from './components/CarouselPhoto';
 import CardFilm from './components/CardFilm';
-import Video from './components/Video';
+import Video1 from './components/Video1';
+import Video2 from './components/Video2';
+import Footer from './Footer';
 
 class App extends Component {
   render() {
@@ -12,7 +14,9 @@ class App extends Component {
         <NavBar />
         <CarouselPhoto />
         <CardFilm />
-        <Video />
+        <Video1 />
+        <Video2 />
+        <Footer />
       </div>
     );
   }

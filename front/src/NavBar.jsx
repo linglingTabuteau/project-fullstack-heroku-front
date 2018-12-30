@@ -11,6 +11,7 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem } from 'reactstrap';
+import './NavBar.scss';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -28,21 +29,21 @@ class NavBar extends React.Component {
   }
   render() {
     return (
-      <div>
-        <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">Cinema Lingling</NavbarBrand>
+      <div className="NavBar">
+        <Navbar  color="light" expand="md">
+          <NavbarBrand href="/">Imaginal Cinema</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/components/">type of film</NavLink>
+                <NavLink href="/components/">Type of film</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
-                  choices
+                  Choices
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem>
