@@ -10,7 +10,9 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  DropdownItem,
+} from 'reactstrap';
+import { Link} from 'react-router-dom';
 import './NavBar.scss';
 
 class NavBar extends React.Component {
@@ -19,27 +21,31 @@ class NavBar extends React.Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      isOpen: false
+      isOpen: false,
     };
   }
+
   toggle() {
+    const { isOpen } = this.state;
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpen: !isOpen,
     });
   }
+
   render() {
+    const { isOpen } = this.state;
     return (
       <div className="NavBar">
-        <Navbar  color="light" expand="md">
-          <NavbarBrand href="/">Imaginal Cinema</NavbarBrand>
+        <Navbar color="light" expand="md">
+          <NavbarBrand href="/">Home Imaginal Cinema</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
+          <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/components/">Type of film</NavLink>
+                <NavLink href="/components/">List All films</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+                <Link to="/addfilm"><NavLink to="/addfilm">Add film</NavLink></Link>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>

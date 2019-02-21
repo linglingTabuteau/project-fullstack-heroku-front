@@ -1,25 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
+import { Route, Switch } from 'react-router-dom';
 import NavBar from './NavBar';
-import CarouselPhoto from './components/CarouselPhoto';
-import CardFilm from './components/CardFilm';
-import Video1 from './components/Video1';
-import Video2 from './components/Video2';
+import Home from './components/Home';
 import Footer from './Footer';
+import SearchBar from './containers/SearchBar';
+import AddFilm from './components/AddFilm';
+import SearchResults from './components/SearchResults';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <NavBar />
-        <CarouselPhoto />
-        <CardFilm />
-        <Video1 />
-        <Video2 />
-        <Footer />
-      </div>
-    );
-  }
-}
+const App = () => (
+  <div className="App">
+    <NavBar />
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route path="/searchbar" component={SearchBar} />
+      <Route path="/addfilm" component={AddFilm} />
+      <Route path="/result" component={SearchResults} />
+    </Switch>
+    <Footer />
+  </div>
+);
 
 export default App;
