@@ -47,23 +47,12 @@ class NavBar extends React.Component {
               <NavItem>
                 <Link to="/addfilm"><NavLink to="/addfilm">Add film</NavLink></Link>
               </NavItem>
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Choices
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    Option 1
-                  </DropdownItem>
-                  <DropdownItem>
-                    Option 2
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    Reset
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
+              <NavItem>
+                <Link to="/addfilm"><NavLink>Sign Up</NavLink></Link>
+              </NavItem>
+              <NavItem>
+                <Link to="/addfilm"><NavLink>Sign In</NavLink></Link>
+              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
