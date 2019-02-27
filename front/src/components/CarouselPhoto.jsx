@@ -4,25 +4,22 @@ import {
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
-  CarouselCaption
+  CarouselCaption,
 } from 'reactstrap';
 
 const items = [
   {
     src: '/medias/studio_ghibli.jpg',
-    altText: 'Slide 1',
-    caption: 'Slide 1'
+    // caption: 'Slide 1',
   },
   {
     src: '/medias/movingcastle.jpg',
-    altText: 'Slide 2',
-    caption: 'Slide 2'
+    // caption: 'Slide 2',
   },
   {
     src: '/medias/studio_ghibli.jpg',
-    altText: 'Slide 2',
-    caption: 'Slide 2'
-  }
+    // caption: 'Slide 2',
+  },
 ];
 
 class CarouselPhoto extends Component {
@@ -45,14 +42,16 @@ class CarouselPhoto extends Component {
   }
 
   next() {
+    const { activeIndex } = this.state;
     if (this.animating) return;
-    const nextIndex = this.state.activeIndex === items.length - 1 ? 0 : this.state.activeIndex + 1;
+    const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
     this.setState({ activeIndex: nextIndex });
   }
 
   previous() {
+    const { activeIndex } = this.state;
     if (this.animating) return;
-    const nextIndex = this.state.activeIndex === 0 ? items.length - 1 : this.state.activeIndex - 1;
+    const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
     this.setState({ activeIndex: nextIndex });
   }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import YouTube from 'react-youtube';
-import './Video.scss';
+import './Video1.scss';
 
 const Video1 = () => {
   const opts = {
@@ -13,8 +13,8 @@ const Video1 = () => {
     },
   };
   return (
-    <div className="Video">
-    <p>first method to add video</p>
+    <div className="Video1">
+      <p>first method to add video</p>
       <YouTube
         className="video-media"
         videoId="iwROgK94zcM" // Lien id de la video, pour inserer une video, tu peux trouver id sur url de video après v=

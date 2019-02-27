@@ -10,7 +10,7 @@ import { initState } from '../actions/index';
 class SearchResults extends Component {
   componentDidMount() {
     const { initState, resultFilms, location } = this.props;
-    // {location.search} send the information of req.query.keyword throught url to the back 
+    // {location.search} send the information of req.query.keyword throught url to the back
     // back waits for a parameter req.query.keyword
     console.log('location', location);
     initState();

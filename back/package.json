@@ -9,15 +9,20 @@
     "test": "mocha --recursive"
   },
   "dependencies": {
+    "bcrypt": "^3.0.4",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.5",
     "debug": "^4.1.1",
     "express": "^4.16.4",
     "http-errors": "^1.7.1",
+    "jsonwebtoken": "^8.5.0",
     "morgan": "^1.9.1",
     "myql": "^1.0.0",
-    "mysql": "^2.16.0"
+    "mysql": "^2.16.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "^5.10.0",

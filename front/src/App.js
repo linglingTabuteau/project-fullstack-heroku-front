@@ -7,6 +7,8 @@ import Footer from './Footer';
 import SearchBar from './containers/SearchBar';
 import AddFilm from './components/AddFilm';
 import SearchResults from './components/SearchResults';
+import SignIn from './containers/SignIn';
+import SignUp from './containers/SignUp';
 
 const App = () => (
   <div className="App">
@@ -16,6 +18,8 @@ const App = () => (
       <Route path="/searchbar" component={SearchBar} />
       <Route path="/addfilm" component={AddFilm} />
       <Route path="/result" component={SearchResults} />
+      <Route path="/signin" component={SignIn} />
+      <Route path="/signup" component={SignUp} />
     </Switch>
     <Footer />
   </div>

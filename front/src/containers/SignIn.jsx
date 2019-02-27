@@ -1,0 +1,90 @@
+import React, { Component } from 'react';
+import {
+  Form,
+  Button,
+  FormGroup,
+  Label,
+  Input,
+  Container,
+}
+  from 'reactstrap';
+import './SignIn.scss';
+import { Link } from 'react-router-dom';
+
+class SignIn extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: 'test@test.com',
+      password: 'lingling',
+    };
+    this.handleUpdatelField = this.handleUpdatelField.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleUpdatelField(e) {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  }
+
+  handleSubmit(e) {
+    // const { email, password } = this.state;
+    e.preventDefault();
+    const config = {
+      method: 'POST',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+      }),
+      // ??? ci-dessous pourquoi ne peut pas envoyer JSON.stringify(email, password); 
+      body: JSON.stringify(this.state),
+    };
+    fetch('http://localhost:5000/api/signin', config)
+      .then((res) => {
+        if (res.ok) {
+          console.log('ok 1res', res);
+          return res.json();
+        }
+        return new Error(res.statusText);
+      })
+      // pourquoi dans 2res, front a réussi à récupérer user et token (ou de back??)
+      .then(res => console.log('2res:', res));
+  }
+
+  render() {
+    const { email, password } = this.state;
+    return (
+      <Container className="SignIn">
+        <h2>Sign In</h2>
+        <Form className="formgroup" onSubmit={this.handleSubmit}>
+          <FormGroup>
+            <Label for="exampleEmail">Email</Label>
+            <Input
+              type="email"
+              name="email"
+              id="Email"
+              value={email}
+              onChange={this.handleUpdatelField}
+              placeholder="enter your email"
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="examplePassword">Password</Label>
+            <Input
+              type="password"
+              name="password"
+              id="Password"
+              value={password}
+              onChange={this.handleUpdatelField}
+              placeholder="enter your password"
+            />
+          </FormGroup>
+          <Button>Sign In</Button>
+        </Form>
+        <Link to="/signup"><Button className="button">CREAT AN ACCOUNT</Button></Link>
+      </Container>
+    );
+  }
+}
+
+export default SignIn;

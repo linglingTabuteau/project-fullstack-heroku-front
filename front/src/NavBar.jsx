@@ -7,12 +7,8 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
 } from 'reactstrap';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './NavBar.scss';
 
 class NavBar extends React.Component {
@@ -48,10 +44,10 @@ class NavBar extends React.Component {
                 <Link to="/addfilm"><NavLink to="/addfilm">Add film</NavLink></Link>
               </NavItem>
               <NavItem>
-                <Link to="/addfilm"><NavLink>Sign Up</NavLink></Link>
+                <Link to="/signup"><NavLink>Sign Up</NavLink></Link>
               </NavItem>
               <NavItem>
-                <Link to="/addfilm"><NavLink>Sign In</NavLink></Link>
+                <Link to="/signin"><NavLink>Sign In</NavLink></Link>
               </NavItem>
             </Nav>
           </Collapse>

@@ -1,8 +1,10 @@
 const { Router } = require('express');
-
 const router = Router();
-
 const connection = require('./conf');
+const bcrypt = require('bcrypt');
+const passport = require('passport');
+const jwt = require('jsonwebtoken');
+
 
 /* GET index page. */
 
@@ -44,6 +46,42 @@ router.get('/results', (req, res) => {
       console.log('Back-results of search', results);
     }
   });
+});
+
+// signup below with bcrypt password & Installation de *passport*
+router.post('/auth/signup', (req, res) => {
+  // ci-dessous je crypte myPassword qui devient un 'hash'/Store hash in database
+  let hash = bcrypt.hashSync(req.body.password, 10);
+  let newUser = {
+    email: req.body.email,
+    // envoie dans BD => hash au lieu de req.body.password
+    password: hash,
+    name: req.body.name,
+    lastname: req.body.lastname,
+    passwordconfirm: req.body.passwordconfirm,
+  }
+  connection.query('INSERT INTO users SET ?', newUser, (err) => {
+    if (err) {
+      res.status(500).send('Erreur lors de creat an account');
+    } else {
+      res.status(200).send('Ok for creating an account');
+    }
+  })
+})
+
+// route signin JWT (Json Web Token) 
+router.post('/signin', function (req, res) {
+  const authenticate = passport.authenticate('local', (err, user, info) => {
+    const token = jwt.sign(JSON.stringify(user), 'your_jwt_secret');
+    if (err) {
+      console.log(err);
+      return res.status(500).send(err)
+    }
+    if (!user) return res.status(400).json({ message: info.message });
+    return res.json({ user, token });
+  })
+  // cette fonction va appele la stratégie 'local'configurée dans app.js
+  authenticate(req, res)
 });
 
 module.exports = router;
