@@ -9,7 +9,11 @@ import {
 }
   from 'reactstrap';
 import './SignIn.scss';
+import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { signinAuth } from '../actions/signin';
 
 class SignIn extends Component {
   constructor(props) {
@@ -29,16 +33,17 @@ class SignIn extends Component {
   }
 
   handleSubmit(e) {
-    // const { email, password } = this.state;
+    const { user, signinAuth, history } = this.props;
     e.preventDefault();
+    signinAuth({ [e.target.name]: e.target.value });
     const config = {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json',
       }),
-      // ??? ci-dessous pourquoi ne peut pas envoyer JSON.stringify(email, password); 
       body: JSON.stringify(this.state),
     };
+    console.log('userFetch:', user);
     fetch('http://localhost:5000/api/signin', config)
       .then((res) => {
         if (res.ok) {
@@ -47,8 +52,12 @@ class SignIn extends Component {
         }
         return new Error(res.statusText);
       })
-      // pourquoi dans 2res, front a réussi à récupérer user et token (ou de back??)
-      .then(res => console.log('2res:', res));
+      // ???pourquoi dans 2res, front a réussi à récupérer user et token (ou de back??)
+      .then((res) => {
+        signinAuth(res.user, res.token);
+        console.log('2res:', res);
+        history.replace('/myprofile');
+      });
   }
 
   render() {
@@ -65,7 +74,8 @@ class SignIn extends Component {
               id="Email"
               value={email}
               onChange={this.handleUpdatelField}
-              placeholder="enter your email"
+              placeholder="clement@gmail.com"
+              required
             />
           </FormGroup>
           <FormGroup>
@@ -76,7 +86,8 @@ class SignIn extends Component {
               id="Password"
               value={password}
               onChange={this.handleUpdatelField}
-              placeholder="enter your password"
+              placeholder="****"
+              required
             />
           </FormGroup>
           <Button>Sign In</Button>
@@ -87,4 +98,14 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn;
+const mdtp = dispatch => bindActionCreators({ signinAuth }, dispatch);
+function mstp(state) {
+  console.log('reducers-state:', state);
+  return {
+    token: state.auth.token,
+    user: state.auth.user,
+  };
+}
+
+
+export default connect(mstp, mdtp)(withRouter(SignIn));
