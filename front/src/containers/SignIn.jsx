@@ -35,7 +35,6 @@ class SignIn extends Component {
   handleSubmit(e) {
     const { user, signinAuth, history } = this.props;
     e.preventDefault();
-    signinAuth({ [e.target.name]: e.target.value });
     const config = {
       method: 'POST',
       headers: new Headers({

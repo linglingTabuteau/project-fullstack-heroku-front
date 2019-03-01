@@ -34,12 +34,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 // paramètre API va utiliser les liens devant '/api'
 app.use('/api', indexRouter);
 
-//?On vérifie les droits d'accès pour chacune des routes qui en ont besoin Pour faire un test, t
-app.get("/profile", passport.authenticate('jwt', { session: false }), function (req, res) {
-  res.send(req.user);
-})
-
-
 // configurer passport en lui passant la strategy qui prend deux arguments config&callback qui prend 3 arguments(email, password, callback)
 passport.use(new LocalStrategy(
   {
@@ -51,7 +45,7 @@ passport.use(new LocalStrategy(
   function (email, password, callback) {
     // console.log('email:', email);
     // console.log('password:', password);
-    connection.query(`SELECT * from users WHERE email ='${email}' and password = '${password}'`, (err, user) => {
+    connection.query(`SELECT name,lastname from users WHERE email ='${email}' and password = '${password}'`, (err, user) => {
       if (err) {
         return callback(err);
       } if (!user) {

@@ -84,4 +84,9 @@ router.post('/signin', function (req, res) {
   authenticate(req, res)
 });
 
+//?On vérifie les droits d'accès pour chacune des routes qui en ont besoin Pour faire un test, t
+router.get("/profile", passport.authenticate('jwt', { session: false }), function (req, res) {
+  res.send(req.user);
+})
+
 module.exports = router;
