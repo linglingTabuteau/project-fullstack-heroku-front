@@ -5,20 +5,18 @@ import {
   CarouselControl,
   CarouselIndicators,
   CarouselCaption,
+  Row,
 } from 'reactstrap';
 
 const items = [
   {
-    src: '/medias/studio_ghibli.jpg',
-    // caption: 'Slide 1',
-  },
-  {
-    src: '/medias/movingcastle.jpg',
-    // caption: 'Slide 2',
+    src: '/medias/princess-kaguya.jpg',
   },
   {
     src: '/medias/studio_ghibli.jpg',
-    // caption: 'Slide 2',
+  },
+  {
+    src: '/medias/totoro.jpg',
   },
 ];
 
@@ -70,7 +68,9 @@ class CarouselPhoto extends Component {
           onExited={this.onExited}
           key={item.src}
         >
-          <img src={item.src} alt={item.altText} />
+          <Row>
+            <img src={item.src} alt={item.altText} />
+          </Row>
           <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
         </CarouselItem>
       );
