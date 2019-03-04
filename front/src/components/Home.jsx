@@ -10,7 +10,7 @@ const Home = () => (
     <CarouselPhoto />
     <SearchBar />
     <AfficheFilm />
-    <Video1 />
+    {/* <Video1 /> */}
     <Video2 />
   </div>
 );

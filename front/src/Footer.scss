@@ -1,14 +1,19 @@
 .Footer{
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: red;
-    color: white;
-    text-align: center;
-  .block{
-    width:40px;
-    flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  // position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color:wheat;
+  text-align: center;
+  // .block{
+  //   width:25px;
+  //   flex: 1 1 auto;
+  // }
+  a{
+    color:black;
   }
   ul{
     list-style: none;

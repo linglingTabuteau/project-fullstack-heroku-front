@@ -1,0 +1,18 @@
+.AfficheFilm{
+  .photo-size{
+    padding: 0px;
+  }
+  .CardFilm{
+    border: 1px solid #BFBFBF;
+    box-shadow: 6px 6px 2px #aaaaaa;
+   &:hover {
+      transform:scale(1.1);
+      transition: 1s;
+      }
+  }
+  Button{
+    background-color: white;
+    color:green;
+    border:2px solid green;
+  }
+}

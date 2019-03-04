@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import {
   Container, Row, Card, CardImg, CardText, CardBody,
   CardTitle,
+  Col,
   Button,
 } from 'reactstrap';
 import '../components/CardFilm.scss';
 import { dataResults } from '../actions/search';
+import './AfficheFilm.scss';
 
 class AfficheFilm extends Component {
   componentDidMount() {
@@ -17,20 +20,27 @@ class AfficheFilm extends Component {
 
   render() {
     const { listFilms } = this.props;
+    console.log(listFilms);
     return (
       <div>
-        <Container>
+        <Container className="AfficheFilm">
           <Row>
             {
               listFilms.results.map(item => (
                 <Card className="CardFilm">
-                  <div className="photo-size">
-                    <CardImg top width="100%" src="/medias/kiki.jpg" alt="Card image cap" />
-                  </div>
+                  <Col className="photo-size">
+                    <CardImg top width="100%" src={item.image_url} alt="Card image cap" />
+                  </Col>
                   <CardBody>
                     <CardTitle>{item.name}</CardTitle>
                     <CardText>{item.on_theatre}</CardText>
-                    <Button>More infor</Button>
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button>More info</Button>
+                    </a>
                   </CardBody>
                 </Card>
               ))

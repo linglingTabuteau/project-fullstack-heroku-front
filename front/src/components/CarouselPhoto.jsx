@@ -10,13 +10,16 @@ import {
 
 const items = [
   {
+    src: '/medias/totoro.jpg',
+  },
+  {
     src: '/medias/princess-kaguya.jpg',
   },
   {
-    src: '/medias/studio_ghibli.jpg',
+    src: '/medias/studio-ghibli-blue.jpg',
   },
   {
-    src: '/medias/totoro.jpg',
+    src: '/medias/movingcastle2.jpeg',
   },
 ];
 

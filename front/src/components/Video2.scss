@@ -1,19 +1,7 @@
 .Video2 {
-  margin-bottom: 150px;
+  margin-bottom: 20px;
   .video-media {
-    height: 450px;
-    width: 700px;
-  }
-  @media screen and (max-width: 667px) {
-    .video-media {
-      height: 250px;
-      width: 350px;
-    }
-  }
-  @media (min-width: 667px) and (max-width: 767px) {
-    .video-media {
-      height: 250px;
-      width: 450px;
-    }
+    padding-top: 2em;
+    padding-bottom: 2em;
   }
 }
