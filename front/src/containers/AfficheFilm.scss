@@ -4,6 +4,7 @@
   }
   .CardFilm{
     border: 1px solid #BFBFBF;
+    // box-shadow effet de 3d pour les cartes
     box-shadow: 6px 6px 2px #aaaaaa;
    &:hover {
       transform:scale(1.1);
@@ -12,7 +13,7 @@
   }
   Button{
     background-color: white;
-    color:green;
-    border:2px solid green;
+    color:rgb(126, 211, 69);
+    border:2px solid rgb(126, 211, 69);
   }
 }

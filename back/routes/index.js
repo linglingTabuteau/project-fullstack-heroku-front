@@ -38,7 +38,7 @@ router.post('/films', (req, res) => {
 router.get('/results', (req, res) => {
   console.log('req.query', req.query);
   const keyword = `%${req.query.keyword}%`;
-  connection.query('SELECT name FROM ghibli_film WHERE name LIKE ?', keyword, (err, results) => {
+  connection.query('SELECT * FROM ghibli_film WHERE name LIKE ?', keyword, (err, results) => {
     if (err) {
       res.sendStatus(500);
     } else {

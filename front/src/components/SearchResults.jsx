@@ -27,6 +27,8 @@ class SearchResults extends Component {
               <CardFilm
                 name={item.name}
                 onTheater={item.on_theater}
+                imageUrl={item.image_url}
+                url={item.url}
               />
             ))
           }

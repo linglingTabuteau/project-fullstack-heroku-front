@@ -12,6 +12,7 @@ const searchResults = (state = initialState, action) => {
         error: action.error,
       };
     case 'SEARCH_SUCCESS':
+      console.log('action.items-Reducer:', action.items);
       return {
         results: action.items,
         loading: false,

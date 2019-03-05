@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './SearchBar.scss';
-import { Input, Button, Form } from 'reactstrap';
+import {
+  Input, Button, Form, Row,
+} from 'reactstrap';
 import { withRouter } from 'react-router';
 import queryString from 'query-string';
 
@@ -31,7 +33,7 @@ class SearchBar extends Component {
     return (
       <div className="SearchBar">
         <Form onSubmit={() => this.pageResult()}>
-          <div className="background">
+          <Row className="background">
             <Input
               className="search1"
               placeholder="Enter a name of film"
@@ -40,8 +42,8 @@ class SearchBar extends Component {
               onChange={this.onChange}
               name="keyword"
             />
-            <Button className="search-button btn-submit">Rechercher</Button>
-          </div>
+            <Button className="search-button btn-submit">Search</Button>
+          </Row>
         </Form>
       </div>
     );

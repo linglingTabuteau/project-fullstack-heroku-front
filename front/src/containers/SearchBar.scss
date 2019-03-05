@@ -1,7 +1,12 @@
 .SearchBar{
-  display: inline-flex;
+  background-color:rgb(126, 211, 69);
+  padding-top:18px;
+  width: 100%;
+  height: 80px;
   .background{
-    display: flex;
+    width:  100%;
+    margin:auto;
+    display: ruby;
     height: 38px;
   }
 }
