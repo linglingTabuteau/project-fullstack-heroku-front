@@ -1,8 +1,9 @@
 import React from 'react';
 import YouTube from 'react-youtube';
-import './Video1.scss';
+import './Video.scss';
 
-const Video1 = () => {
+const Video = (props) => {
+  const { videoId } = props;
   const opts = {
     playerVars: {
       // différente configuration de lecture, d'affichage, d'utilisation//
@@ -17,11 +18,11 @@ const Video1 = () => {
       <p>first method to add video</p>
       <YouTube
         className="video-media"
-        videoId="iwROgK94zcM" // Lien id de la video, pour inserer une video, tu peux trouver id sur url de video après v=
+        videoId={videoId} // Lien id de la video, pour inserer une video, tu peux trouver id sur url de video après v=
         opts={opts}
       />
     </div>
   );
 };
 
-export default Video1;
+export default Video;

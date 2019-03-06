@@ -1,7 +1,4 @@
 .AfficheFilm{
-  .photo-size{
-    padding: 0px;
-  }
   .CardFilm{
     border: 1px solid #BFBFBF;
     // box-shadow effet de 3d pour les cartes
@@ -10,10 +7,5 @@
       transform:scale(1.1);
       transition: 1s;
       }
-  }
-  Button{
-    background-color: white;
-    color:rgb(126, 211, 69);
-    border:2px solid rgb(126, 211, 69);
   }
 }

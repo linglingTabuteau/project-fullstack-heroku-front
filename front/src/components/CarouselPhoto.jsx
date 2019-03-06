@@ -10,16 +10,28 @@ import {
 
 const items = [
   {
-    src: '/medias/totoro.jpg',
+    src: '/medias/movingcastle.jpeg',
   },
   {
-    src: '/medias/princess-kaguya.jpg',
+    src: '/medias/ponyo.jpg',
   },
   {
-    src: '/medias/studio-ghibli-blue.jpg',
+    src: '/medias/chat.jpg',
   },
   {
-    src: '/medias/movingcastle2.jpeg',
+    src: '/medias/spirit.jpeg',
+  },
+  {
+    src: '/medias/memoiremarry.jpg',
+  },
+  {
+    src: '/medias/kiki.jpg',
+  },
+  {
+    src: '/medias/movingcastle3.jpeg',
+  },
+  {
+    src: '/medias/ghibli.jpg',
   },
 ];
 

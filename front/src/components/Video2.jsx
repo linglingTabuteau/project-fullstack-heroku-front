@@ -9,6 +9,7 @@ const Video2 = () => (
   <div className="Video2">
     <h2>kiki & chihiro</h2>
     {/* <p>second method to add a video</p> */}
+    {/* https://www.youtube.com/watch?v=9CtIXPhPo0g&list=PLkukk61q9mY_ps9HKovftqotZiKb34BVt&index=16 */}
     <Row className="video-media">
       <Col xs="12" sm="12" lg="6">
         <iframe

@@ -33,7 +33,7 @@ class NavBar extends React.Component {
     return (
       <div className="NavBar">
         <Navbar color="light" expand="md">
-          <NavbarBrand href="/">Home Imaginal Cinema</NavbarBrand>
+          <NavbarBrand href="/">MEMORY GHIBLI</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
@@ -42,6 +42,9 @@ class NavBar extends React.Component {
               </NavItem>
               <NavItem>
                 <Link to="/addfilm"><NavLink to="/addfilm">Add film</NavLink></Link>
+              </NavItem>
+              <NavItem>
+                <Link to="/addfilm"><NavLink to="/addfilm">Administrateur</NavLink></Link>
               </NavItem>
               <NavItem>
                 <Link to="/signup"><NavLink>Sign Up</NavLink></Link>
