@@ -44,8 +44,6 @@ passport.use(new LocalStrategy(
     session: false
   },
   function (email, password, callback) {
-    console.log('first', password);
-    console.log('second', callback);
     // connection.query(`SELECT name,lastname from users WHERE email ='${email}' and password = '${password}'`, (err, user) => {
     //   if (err) {
     //     return callback(err);
@@ -55,7 +53,7 @@ passport.use(new LocalStrategy(
     //     return callback(null, user[0]);
     //   }
     // });
-
+    console.log('callbakc:', callback);
     connection.query('select * from users where email = ?', email, (err, results) => {
       console.log('err:', err);
       if (err) {

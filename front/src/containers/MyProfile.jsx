@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { Container } from 'reactstrap';
+import {
+  Container, Card, CardImg, CardText, CardBody, Col,
+  CardTitle, Button,
+} from 'reactstrap';
 import { withRouter } from 'react-router';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { signinAuth } from '../actions/signin';
+import './MyProfile.scss';
 
 
 class MyProfile extends Component {
@@ -39,11 +42,21 @@ class MyProfile extends Component {
   }
 
   render() {
-    const { user, token } = this.props;
+    const { user } = this.props;
     return (
-      <Container>
-        <h2>{`Welcome to your profile ${user.name} ${user.lastname}`}</h2>
-        <p>{token}</p>
+      <Container className="MyProfile">
+        <h2>{`Welcome ${user.name} ${user.lastname} to MEMORY GHIBLI`}</h2>
+        <p>Sharing special memories & experiences with you</p>
+        <Card className="CardFilm">
+          <Col className="photo-size">
+            <CardImg top width="100%" src="/medias/welcome.png" alt="Card image cap" />
+          </Col>
+          <CardBody>
+            <CardTitle>{`Welcome ${user.name} ${user.lastname}`}</CardTitle>
+            {/* <CardText>{onTheater}</CardText> */}
+            <a href="https://www.youtube.com/watch?v=ByXuk9QqQkk&t=62s" target="_blank" rel="noopener noreferrer"><Button>My Favriote One</Button></a>
+          </CardBody>
+        </Card>
       </Container>
     );
   }

@@ -3,7 +3,6 @@ import {
   Card, CardImg, CardText, CardBody, Col,
   CardTitle, Button,
 } from 'reactstrap';
-import { Link } from 'react-router-dom';
 import './CardFilm.scss';
 
 const CardFilm = (props) => {
