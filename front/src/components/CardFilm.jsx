@@ -10,7 +10,7 @@ const CardFilm = (props) => {
     name, imageUrl, url, videoUrl,
   } = props;
   return (
-    <Card className="CardFilm">
+    <Card className="CardFilm" sm="12" md={{ size: 6, offset: 3 }}>
       <Col className="photo-size">
         <CardImg top width="100%" src={imageUrl} alt="Card image cap" />
       </Col>

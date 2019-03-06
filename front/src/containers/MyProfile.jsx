@@ -52,9 +52,9 @@ class MyProfile extends Component {
             <CardImg top width="100%" src="/medias/welcome.png" alt="Card image cap" />
           </Col>
           <CardBody>
-            <CardTitle>{`Welcome ${user.name} ${user.lastname}`}</CardTitle>
+            <CardTitle>{`WELCOME ${user.name} ${user.lastname}`}</CardTitle>
             {/* <CardText>{onTheater}</CardText> */}
-            <a href="https://www.youtube.com/watch?v=ByXuk9QqQkk&t=62s" target="_blank" rel="noopener noreferrer"><Button>My Favriote One</Button></a>
+            <a href="https://www.youtube.com/watch?v=ByXuk9QqQkk&t=62s" target="_blank" rel="noopener noreferrer"><Button>My Favourite One</Button></a>
           </CardBody>
         </Card>
       </Container>

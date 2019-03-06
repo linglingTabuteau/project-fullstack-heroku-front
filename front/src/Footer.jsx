@@ -19,7 +19,7 @@ const Footer = () => (
         <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/signin">Se connecter</Link></li>
-          <li><Link to="/signup">Creat an account</Link></li>
+          <li><Link to="/signup">Create an account</Link></li>
         </ul>
       </Col>
       <Col className="block" sm="4" lg="4">

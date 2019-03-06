@@ -7,35 +7,36 @@ import {
   Nav,
   NavItem,
   NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './NavBar.scss';
 
-class NavBar extends React.Component {
+export default class NavBar extends React.Component {
   constructor(props) {
     super(props);
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      isOpen: false,
+      isOpen: false
     };
   }
-
   toggle() {
-    const { isOpen } = this.state;
     this.setState({
-      isOpen: !isOpen,
+      isOpen: !this.state.isOpen
     });
   }
-
   render() {
-    const { isOpen } = this.state;
     return (
       <div className="NavBar">
-        <Navbar color="light" expand="md">
+      {/* attention: faut enlever light dans Navbar pour changer la color de NavItem */}
+        <Navbar color="light" light expand="md" className="nav">
           <NavbarBrand href="/">MEMORY GHIBLI</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={isOpen} navbar>
+          <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
                 <NavLink href="/components/">List All films</NavLink>
@@ -52,6 +53,23 @@ class NavBar extends React.Component {
               <NavItem>
                 <Link to="/signin"><NavLink>Sign In</NavLink></Link>
               </NavItem>
+              <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  Options
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem>
+                    Option 1
+                  </DropdownItem>
+                  <DropdownItem>
+                    Option 2
+                  </DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem>
+                    Reset
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
             </Nav>
           </Collapse>
         </Navbar>
@@ -59,5 +77,3 @@ class NavBar extends React.Component {
     );
   }
 }
-
-export default NavBar;

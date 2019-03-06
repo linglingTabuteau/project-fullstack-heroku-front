@@ -1,11 +1,3 @@
 .AfficheFilm{
-  .CardFilm{
-    border: 1px solid #BFBFBF;
-    // box-shadow effet de 3d pour les cartes
-    box-shadow: 6px 6px 2px #aaaaaa;
-   &:hover {
-      transform:scale(1.1);
-      transition: 1s;
-      }
-  }
+
 }
