@@ -19,16 +19,10 @@ const items = [
     src: '/medias/chat.jpg',
   },
   {
-    src: '/medias/spirit.jpeg',
-  },
-  {
     src: '/medias/memoiremarry.jpg',
   },
   {
     src: '/medias/kiki.jpg',
-  },
-  {
-    src: '/medias/movingcastle3.jpeg',
   },
   {
     src: '/medias/ghibli.jpg',

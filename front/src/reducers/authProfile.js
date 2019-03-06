@@ -9,7 +9,7 @@ const initialState = {
 const authProfile = (state = initialState, action) => {
   switch (action.type) {
     case 'SIGNIN':
-      console.log('action-signinProfile:', action);
+      console.log('actionuser-signinProfile:', action.user);
       return {
         user: { ...action.user },
         token: action.token,

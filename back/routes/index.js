@@ -1,8 +1,8 @@
 const { Router } = require('express');
 const router = Router();
 const connection = require('./conf');
-const bcrypt = require('bcrypt');
 const passport = require('passport');
+const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 

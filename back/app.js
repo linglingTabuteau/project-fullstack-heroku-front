@@ -4,7 +4,8 @@ const httpErrors = require('http-errors');
 const logger = require('morgan');
 const path = require('path');
 const cors = require('cors');
-const bodyParser = require('body-parser')
+const bcrypt = require('bcrypt');
+const bodyParser = require('body-parser');
 
 const indexRouter = require('./routes/index');
 
@@ -43,19 +44,34 @@ passport.use(new LocalStrategy(
     session: false
   },
   function (email, password, callback) {
-    // console.log('email:', email);
-    // console.log('password:', password);
-    connection.query(`SELECT name,lastname from users WHERE email ='${email}' and password = '${password}'`, (err, user) => {
+    console.log('first', password);
+    console.log('second', callback);
+    // connection.query(`SELECT name,lastname from users WHERE email ='${email}' and password = '${password}'`, (err, user) => {
+    //   if (err) {
+    //     return callback(err);
+    //   } if (!user) {
+    //     return callback(null, false, { message: 'Incorrect email ou password.' });
+    //   } else {
+    //     return callback(null, user[0]);
+    //   }
+    // });
+
+    connection.query('select * from users where email = ?', email, (err, results) => {
+      console.log('err:', err);
       if (err) {
-        return callback(err);
-      } if (!user) {
-        return callback(null, false, { message: 'Incorrect email ou password.' });
-      } else {
-        return callback(null, user[0]);
+        return callback(err, false);
       }
+      const user = results[0];
+      if (!user) {
+        return callback(null, false);
+      }
+      const authPassword = bcrypt.compareSync(password, user.password);
+      if (!authPassword) {
+        return callback(null, false);
+      }
+      return callback(null, user);
     });
-  }
-));
+  }));
 
 // 2 Il faut identifier l'utilisateur à chaque requête en décodant le JWT. Pour cela tu vas devoir créer une nouvelle stratégie passport.
 // Cette stratégie récupère le token dans le header de la requête ExtractJWT.fromAuthHeaderAsBearerToken() et décode le token à l'aide du secret.

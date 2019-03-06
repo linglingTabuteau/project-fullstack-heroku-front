@@ -19,8 +19,8 @@ class SignIn extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: 'test@test.com',
-      password: 'lingling',
+      email: '',
+      password: '',
     };
     this.handleUpdatelField = this.handleUpdatelField.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -42,7 +42,7 @@ class SignIn extends Component {
       }),
       body: JSON.stringify(this.state),
     };
-    console.log('userFetch:', user);
+    console.log('thisstateFetch:', this.state);
     fetch('http://localhost:5000/api/signin', config)
       .then((res) => {
         if (res.ok) {
@@ -54,6 +54,7 @@ class SignIn extends Component {
       // ???pourquoi dans 2res, front a réussi à récupérer user et token (ou de back??)
       .then((res) => {
         signinAuth(res.user, res.token);
+        console.log('userFetch:', user);
         console.log('2res:', res);
         history.replace('/myprofile');
       });
