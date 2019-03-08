@@ -78,7 +78,8 @@ passport.use(new JWTStrategy({
   secretOrKey: 'your_jwt_secret'
 },
   function (jwtPayload, cb) {
-    console.log('jwtPayload', jwtPayload);
+    console.log('jwtPayload:', jwtPayload);
+    console.log('JWT-callback:', cb);
     return cb(null, jwtPayload);
   }
 ));

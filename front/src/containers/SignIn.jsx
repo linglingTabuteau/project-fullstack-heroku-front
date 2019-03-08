@@ -46,7 +46,6 @@ class SignIn extends Component {
     fetch('http://localhost:5000/api/signin', config)
       .then((res) => {
         if (res.ok) {
-          console.log('ok 1res', res);
           return res.json();
         }
         return new Error(res.statusText);
@@ -54,8 +53,6 @@ class SignIn extends Component {
       // ???pourquoi dans 2res, front a réussi à récupérer user et token (ou de back??)
       .then((res) => {
         signinAuth(res.user, res.token);
-        console.log('userFetch:', user);
-        console.log('2res:', res);
         history.replace('/myprofile');
       });
   }

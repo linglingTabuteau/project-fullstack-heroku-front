@@ -33,7 +33,7 @@ class SearchBar extends Component {
     return (
       <div className="SearchBar">
         <Form onSubmit={() => this.pageResult()}>
-          <Row className="background">
+          <Row className="center-searchbar">
             <Input
               className="search1"
               placeholder="Enter a name of film"

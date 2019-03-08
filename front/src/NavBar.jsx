@@ -38,38 +38,21 @@ export default class NavBar extends React.Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink href="/components/">List All films</NavLink>
+              <NavItem className="colorgreen">
+                <NavLink href="/components/" style={{color: 'rgb(126, 211, 69)'}}>List All films</NavLink>
               </NavItem>
               <NavItem>
-                <Link to="/addfilm"><NavLink to="/addfilm">Add film</NavLink></Link>
+                <Link to="/addfilm"><NavLink to="/addfilm" style={{color: 'rgb(126, 211, 69)'}}>Add film</NavLink></Link>
               </NavItem>
               <NavItem>
-                <Link to="/addfilm"><NavLink to="/addfilm">Administrateur</NavLink></Link>
+                <Link to="/addfilm"><NavLink to="/addfilm" style={{color: 'rgb(126, 211, 69)'}}>Administrateur</NavLink></Link>
               </NavItem>
               <NavItem>
-                <Link to="/signup"><NavLink>Sign Up</NavLink></Link>
+                <Link to="/signup"><NavLink style={{color: 'rgb(126, 211, 69)'}}>Sign Up</NavLink></Link>
               </NavItem>
               <NavItem>
-                <Link to="/signin"><NavLink>Sign In</NavLink></Link>
+                <Link to="/signin"><NavLink style={{color: 'rgb(126, 211, 69)'}}>Sign In</NavLink></Link>
               </NavItem>
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Options
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    Option 1
-                  </DropdownItem>
-                  <DropdownItem>
-                    Option 2
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    Reset
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
             </Nav>
           </Collapse>
         </Navbar>

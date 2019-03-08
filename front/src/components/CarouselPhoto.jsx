@@ -6,7 +6,9 @@ import {
   CarouselIndicators,
   CarouselCaption,
   Row,
+  Col
 } from 'reactstrap';
+import './CarouselPhoto.scss';
 
 const items = [
   {
@@ -78,7 +80,7 @@ class CarouselPhoto extends Component {
           key={item.src}
         >
           <Row>
-            <img src={item.src} alt={item.altText} />
+            <img className="center-image" src={item.src} alt={item.altText} />
           </Row>
           <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
         </CarouselItem>

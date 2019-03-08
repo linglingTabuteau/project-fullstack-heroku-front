@@ -20,8 +20,8 @@ class AfficheFilm extends Component {
     const { listFilms } = this.props;
     return (
       <div>
-        <Container className="AfficheFilm">
-          <Row>
+        <Container fluid className="AfficheFilm">
+          <Row className="center-card">
             {
               listFilms.results.map(item => (
                 <CardFilm
