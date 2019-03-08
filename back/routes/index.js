@@ -84,7 +84,8 @@ router.post('/signin', function (req, res) {
   authenticate(req, res)
 });
 
-//?On vérifie les droits d'accès pour chacune des routes qui en ont besoin Pour faire un test, t
+//Attention: différentier la route du back "/profile" et le path du front"/myprofile" 
+//??? On vérifie les droits d'accès pour chacune des routes qui en ont besoin Pour faire un test, t
 router.get("/profile", passport.authenticate('jwt', { session: false }), function (req, res) {
   res.send(req.user);
 })
