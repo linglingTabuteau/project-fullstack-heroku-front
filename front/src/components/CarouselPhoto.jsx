@@ -78,10 +78,11 @@ class CarouselPhoto extends Component {
           onExiting={this.onExiting}
           onExited={this.onExited}
           key={item.src}
+          className="center-image"
         >
-          <Row>
-            <img className="center-image" src={item.src} alt={item.altText} />
-          </Row>
+          {/* <Row> */}
+            <img src={item.src} alt={item.altText} />
+          {/* </Row> */}
           <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
         </CarouselItem>
       );
