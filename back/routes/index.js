@@ -74,10 +74,11 @@ router.post('/signin', function (req, res) {
   const authenticate = passport.authenticate('local', (err, user, info) => {
     const token = jwt.sign(JSON.stringify(user), 'your_jwt_secret');
     if (err) {
-      console.log(err);
-      return res.status(500).send(err)
+      return res.sendStatus(500);
+    } if (!user) {
+      console.log('erre400', res);
+      return res.sendStatus(400);
     }
-    if (!user) return res.status(400).json({ message: info.message });
     return res.json({ user, token });
   })
   // cette fonction va appele la stratégie 'local'configurée dans app.js

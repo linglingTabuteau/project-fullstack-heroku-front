@@ -32,26 +32,23 @@ export default class NavBar extends React.Component {
   render() {
     return (
       <div className="NavBar">
-      {/* attention: faut enlever light dans Navbar pour changer la color de NavItem */}
+        {/* attention: faut enlever light dans Navbar pour changer la color de NavItem */}
         <Navbar color="light" light expand="md" className="nav">
-          <NavbarBrand href="/">MEMORY GHIBLI</NavbarBrand>
+          <NavbarBrand href="/" style={{ color: 'rgb(126, 211, 69)' }}>MEMORY GHIBLI</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem className="colorgreen">
-                <NavLink href="/components/" style={{color: 'rgb(126, 211, 69)'}}>List All films</NavLink>
+                <Link to="/affichefilm"><NavLink to="/affichefilm" style={{ color: 'rgb(126, 211, 69)' }}>List All films</NavLink></Link>
               </NavItem>
               <NavItem>
-                <Link to="/addfilm"><NavLink to="/addfilm" style={{color: 'rgb(126, 211, 69)'}}>Add film</NavLink></Link>
+                <Link to="/admin/addfilm"><NavLink to="/admin/addfilm" style={{ color: 'rgb(126, 211, 69)' }}>Administrateur</NavLink></Link>
               </NavItem>
               <NavItem>
-                <Link to="/addfilm"><NavLink to="/addfilm" style={{color: 'rgb(126, 211, 69)'}}>Administrateur</NavLink></Link>
+                <Link to="/signup"><NavLink style={{ color: 'rgb(126, 211, 69)' }}>Sign Up</NavLink></Link>
               </NavItem>
               <NavItem>
-                <Link to="/signup"><NavLink style={{color: 'rgb(126, 211, 69)'}}>Sign Up</NavLink></Link>
-              </NavItem>
-              <NavItem>
-                <Link to="/signin"><NavLink style={{color: 'rgb(126, 211, 69)'}}>Sign In</NavLink></Link>
+                <Link to="/signin"><NavLink style={{ color: 'rgb(126, 211, 69)' }}>Sign In</NavLink></Link>
               </NavItem>
             </Nav>
           </Collapse>

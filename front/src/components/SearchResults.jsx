@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 import CardFilm from './CardFilm';
 import { dataResults } from '../actions/search';
 import { initState } from '../actions/index';
+import './SearchResults.scss';
 
 class SearchResults extends Component {
   componentDidMount() {
@@ -20,7 +21,7 @@ class SearchResults extends Component {
   render() {
     const { searchResults: { results } } = this.props;
     return (
-      <Container className="Films">
+      <Container className="SearchResults">
         <Row>
           {
             results.map(item => (

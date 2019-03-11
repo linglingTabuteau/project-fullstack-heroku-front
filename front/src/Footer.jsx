@@ -9,9 +9,8 @@ const Footer = () => (
       <Col className="block" sm="4" lg="4">
         <h2>Services</h2>
         <ul>
-          <li><Link to="/addfilm">Add film</Link></li>
-          <li><Link to="/addfilm">Modify film</Link></li>
-          <li><Link to="/addfilm">Contact Us</Link></li>
+          <li><Link to="/admin/addfilm">Modify film</Link></li>
+          <li><Link to="/admin/addfilm">Contact Us</Link></li>
         </ul>
       </Col>
       <Col className="block" sm="4" lg="4">

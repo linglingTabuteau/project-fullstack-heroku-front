@@ -1,17 +1,19 @@
 .Footer{
+  //  Create a fixed footer
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  max-height: 150px;
+  // ci-dessus fixed footer
   display: flex;
   flex-direction: column;
-  // position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   background-color: rgb(126, 211, 69);
   color:wheat;
   text-align: center;
-  // .block{
-  //   width:25px;
-  //   flex: 1 1 auto;
-  // }
   a{
     color:black;
   }

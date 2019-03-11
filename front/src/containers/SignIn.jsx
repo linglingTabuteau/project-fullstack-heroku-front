@@ -45,12 +45,12 @@ class SignIn extends Component {
     console.log('thisstateFetch:', this.state);
     fetch('http://localhost:5000/api/signin', config)
       .then((res) => {
-        if (res.ok) {
+        if (res.status === 400) {
+         console.log('res.statusText', res.statusText);
+        } if (res.status === 200) {
           return res.json();
         }
-        return new Error(res.statusText);
       })
-      // ???pourquoi dans 2res, front a réussi à récupérer user et token (ou de back??)
       .then((res) => {
         signinAuth(res.user, res.token);
         history.replace('/myprofile');
