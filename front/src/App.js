@@ -19,18 +19,20 @@ import Video from './components/Video';
 const App = () => (
   <div className="App">
     <NavBar />
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route path="/searchbar" component={SearchBar} />
-      {/* <Route path="/addfilm" component={AddFilm} /> */}
-      <Route path="/result" component={SearchResults} />
-      <Route path="/affichefilm" component={AfficheFilm} />
-      <Route path="/video" component={Video} />
-      <Route exact path="/myprofile" component={requireAuth(MyProfile)} />
-      <Route exact path="/signin" component={requireNotAuth(SignIn)} />
-      <Route exact path="/signup" component={requireNotAuth(SignUp)} />
-      <PrivateRoute path="/admin/addfilm" component={AddFilm} />
-    </Switch>
+    {/* we give a fixed size to menu in order to keep Footer at the bottom of page */}
+    <div className='menu'>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/searchbar" component={SearchBar} />
+        <Route path="/result" component={SearchResults} />
+        <Route path="/affichefilm" component={AfficheFilm} />
+        <Route path="/video" component={Video} />
+        <Route exact path="/myprofile" component={requireAuth(MyProfile)} />
+        <Route exact path="/signin" component={requireNotAuth(SignIn)} />
+        <Route exact path="/signup" component={requireNotAuth(SignUp)} />
+        <PrivateRoute path="/admin/addfilm" component={AddFilm} />
+      </Switch>
+    </div>
     <Footer />
   </div>
 );

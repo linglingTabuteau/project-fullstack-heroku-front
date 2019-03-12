@@ -7,6 +7,10 @@
   height: 40vmin;
 }
 
+/* below .menu{} keep Footer at the bottom of a page because we give fixed size to the menu */
+.menu{
+  min-height: calc(100vh - 140px);
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

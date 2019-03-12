@@ -12,7 +12,6 @@ const PrivateRouteAdmin = ({ component: Component, user, token, ...rest }) => (
     render={props => {
       console.log('1privateRoute-props:', props);
       console.log('2privateRoute-...rest:', { ...rest });
-      // pourquoi je ne peux pas utliser props.token a la place de token ci-dessous
       if (token !== '' && user.email === 'lingling.tabuteau@gmail.com'){
        return(
         <Component {...props} />
