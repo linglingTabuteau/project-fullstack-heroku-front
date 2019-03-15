@@ -36,21 +36,21 @@ class NavBar extends React.Component {
     const token = cookies.get('token');
     if (token) {
       fetch('http://localhost:5000/api/profile',
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return new Error(res.statusText);
-      })
-      .then((user) => {
-        this.props.autoLoginAuth(user, token);
-      })
-      .catch();
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => {
+          if (res.ok) {
+            return res.json();
+          }
+          return new Error(res.statusText);
+        })
+        .then((user) => {
+          this.props.autoLoginAuth(user, token);
+        })
+        .catch();
     }
   }
 
@@ -67,7 +67,7 @@ class NavBar extends React.Component {
   }
 
   render() {
-    const { logout, signinAuth, user } = this.props;
+    const { user } = this.props;
     console.log('usernavbar', user);
     return (
       <div className="NavBar">
@@ -84,24 +84,24 @@ class NavBar extends React.Component {
                 user.email === ''
                   ? (
                     <NavItem>
-                     <NavLink tag={Link} to="/signin" style={{ color: 'rgb(126, 211, 69)' }}>Sign In</NavLink>
+                      <NavLink tag={Link} to="/signin" style={{ color: 'rgb(126, 211, 69)' }}>Sign In</NavLink>
                     </NavItem>
                   )
                   : (
                     <UncontrolledDropdown>
-                      <DropdownToggle style={{ color: 'rgb(126, 211, 69)' }}>
+                      <DropdownToggle className="drop">
                         My Profile
                       </DropdownToggle>
                       <DropdownMenu right className="drop">
                         <DropdownItem className="drop" tag={Link} to="/myprofile">My Profile</DropdownItem>
-                        <DropdownItem onClick={this.doLogout}>sign out</DropdownItem>
+                        <DropdownItem onClick={this.doLogout} className="drop">Sign Out</DropdownItem>
                         {
-                          (user.mail === 'lingling.tabuteau@gmail.com')
+                          (user.email === 'lingling.tabuteau@gmail.com')
                             ? (
                               <DropdownItem className="drop" tag={Link} to="/admin">Administrateur</DropdownItem>
                             )
                             : (
-                              <div />
+                              <DropdownItem></DropdownItem>
                             )
                         }
                       </DropdownMenu>
