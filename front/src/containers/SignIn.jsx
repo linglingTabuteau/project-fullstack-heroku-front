@@ -33,7 +33,7 @@ class SignIn extends Component {
   }
 
   handleSubmit(e) {
-    const { user, signinAuth, history } = this.props;
+    const { signinAuth, history } = this.props;
     e.preventDefault();
     const config = {
       method: 'POST',
@@ -42,7 +42,6 @@ class SignIn extends Component {
       }),
       body: JSON.stringify(this.state),
     };
-    console.log('thisstateFetch:', this.state);
     fetch('http://localhost:5000/api/signin', config)
       .then((res) => {
         if (res.status === 400) {

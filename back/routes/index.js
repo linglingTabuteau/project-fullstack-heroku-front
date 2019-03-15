@@ -25,8 +25,10 @@ router.get('/films', (req, res) => {
 // post /films 
 router.post('/films', (req, res) => {
   const formData = req.body;
+  console.log('formData:', formData);
   connection.query('INSERT INTO ghibli_film SET ?', formData, (err) => {
     if (err) {
+      console.log('err:', err);
       res.status(500).send('Erreur lors de rejouter un film');
     } else {
       res.status(200).send('ok');

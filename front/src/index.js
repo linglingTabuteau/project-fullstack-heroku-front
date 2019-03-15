@@ -11,7 +11,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import allReducers from './reducers';
 
-
 const store = createStore(allReducers, applyMiddleware(thunk));
 ReactDOM.render(
   <BrowserRouter>

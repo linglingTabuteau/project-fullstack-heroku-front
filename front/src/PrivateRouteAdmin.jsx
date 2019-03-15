@@ -9,10 +9,13 @@ import { connect } from 'react-redux';
 const PrivateRouteAdmin = ({ component: Component, user, token, ...rest }) => (
   <Route
     {...rest}
+    // attention: after arrow function, we use {several ligns of instructions} so we need return inside{} else without {} we can avoid return just () is enoght
     render={props => {
       console.log('1privateRoute-props:', props);
       console.log('2privateRoute-...rest:', { ...rest });
-      if (token !== '' && user.email === 'lingling.tabuteau@gmail.com'){
+      const cookies = new Map(document.cookie.split('; ').map((e) => e.split('=')));
+
+      if ((cookies.get('token') !== '' || token !== '') && user.email === 'lingling.tabuteau@gmail.com') {
        return(
         <Component {...props} />
        );

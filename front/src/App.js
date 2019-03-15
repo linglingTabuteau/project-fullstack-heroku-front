@@ -14,6 +14,7 @@ import requireAuth from './hoc/requireAuth';
 import requireNotAuth from './hoc/requireNotAuth';
 import PrivateRoute from './PrivateRouteAdmin';
 import AfficheFilm from './containers/AfficheFilm';
+import Admin from './components/Admin';
 import Video from './components/Video';
 
 const App = () => (
@@ -31,6 +32,7 @@ const App = () => (
         <Route exact path="/signin" component={requireNotAuth(SignIn)} />
         <Route exact path="/signup" component={requireNotAuth(SignUp)} />
         <PrivateRoute path="/admin/addfilm" component={AddFilm} />
+        <PrivateRoute path="/admin" component={Admin} />
       </Switch>
     </div>
     <Footer />

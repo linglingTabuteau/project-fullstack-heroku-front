@@ -29,13 +29,11 @@ class MyProfile extends Component {
       })
       .then((res) => {
         if (res.ok) {
-          console.log('resokprofile', res);
           return res.json();
         }
         return new Error(res.statusText);
       })
       .then((res) => {
-        console.log('resProfile:', res);
         this.setState({ profile: res });
       })
       .catch();

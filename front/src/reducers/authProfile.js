@@ -10,12 +10,20 @@ const authProfile = (state = initialState, action) => {
   switch (action.type) {
     case 'SIGNIN':
       console.log('actionuser-signinProfile:', action.user);
+      document.cookie = `token=${action.token}`;
+      return {
+        // duplique les propriétés de action.user pour le pas modifier
+        user: { ...action.user },
+        token: action.token,
+      };
+    case 'AUTOLOGIN':
       return {
         user: { ...action.user },
         token: action.token,
       };
     case 'SIGNOUT':
-      return { initialState };
+      document.cookie = 'token=';
+      return initialState;
     default:
       return state;
   }

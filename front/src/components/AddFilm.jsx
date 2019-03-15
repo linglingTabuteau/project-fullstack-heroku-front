@@ -8,10 +8,13 @@ import { withRouter } from 'react-router';
 class AddFilm extends Component {
   constructor(props) {
     super(props);
+    // attention, nom des clés dans le stage doivent respondent aux noms dans la basedonnée
     this.state = {
       name: '',
       url: '',
       category: '',
+      image_url: '',
+      video_url:''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleAddFilm = this.handleAddFilm.bind(this);
@@ -37,57 +40,74 @@ class AddFilm extends Component {
       .then(res => res.text())
       .then((res) => {
         if (res === 'ok') {
-          console.log('history:', history);
           history.push('/');
           // sert à rafraichir la page: window.location.reload();
         } else {
-          console.log(res);
+          console.log('res-front:', res);
         }
       });
   }
 
   render() {
-    const { name, url, category } = this.props;
+    const { name, url, category, image_url, video_url} = this.state;
     return (
-      <div className="AddFilm">
-        <Container className="AddFAQ">
-          <Form onSubmit={this.handleAddFilm}>
-            <FormGroup>
-              <Label for="name">Name</Label>
-              <textarea
-                onChange={this.handleChange}
-                type="text"
-                name="name"
-                id="name"
-                value={name}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="url">Url</Label>
-              <textarea
-                onChange={this.handleChange}
-                type="text"
-                name="url"
-                id="url"
-                value={url}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="category">Category</Label>
-              <textarea
-                onChange={this.handleChange}
-                type="text"
-                name="category"
-                id="category"
-                value={category}
-              />
-            </FormGroup>
-            <div className="text-center">
-              <Button color="primary font2" className="mb-3">Ajouter</Button>
-            </div>
-          </Form>
-        </Container>
-      </div>
+      <Container className="AddFilm">
+        <Form onSubmit={this.handleAddFilm}>
+          <FormGroup>
+            <Label for="name">Name</Label>
+            <textarea
+              onChange={this.handleChange}
+              type="text"
+              name="name"
+              id="name"
+              value={name}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="url">Url</Label>
+            <textarea
+              onChange={this.handleChange}
+              type="text"
+              name="url"
+              id="url"
+              value={url}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="category">Category</Label>
+            <textarea
+              onChange={this.handleChange}
+              type="text"
+              name="category"
+              id="category"
+              value={category}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="category">image_url</Label>
+            <textarea
+              onChange={this.handleChange}
+              type="text"
+              name="image_url"
+              id="image_url"
+              value={image_url}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="category">image_url</Label>
+            <textarea
+              onChange={this.handleChange}
+              type="text"
+              name="video_url"
+              id="video_url"
+              value={video_url}
+            />
+          </FormGroup>
+          <div className="text-center">
+            <Button color="primary font2" className="mb-3">Ajouter</Button>
+          </div>
+        </Form>
+      </Container>
     );
   }
 }
