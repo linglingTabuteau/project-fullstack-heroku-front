@@ -68,7 +68,6 @@ class NavBar extends React.Component {
 
   render() {
     const { user } = this.props;
-    console.log('usernavbar', user);
     return (
       <div className="NavBar">
         {/* attention: faut enlever light dans Navbar pour changer la color de NavItem */}
@@ -77,7 +76,7 @@ class NavBar extends React.Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              <NavItem className="colorgreen">
+              <NavItem>
                 <Link to="/affichefilm"><NavLink to="/affichefilm" style={{ color: 'rgb(126, 211, 69)' }}>List All films</NavLink></Link>
               </NavItem>
               {

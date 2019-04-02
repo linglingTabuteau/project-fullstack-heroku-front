@@ -1,10 +1,12 @@
 .Admin{
-  a{
+  .button a{
    margin: 20px;
-  //  padding:20px;
    background-color: rgb(126, 211, 69);
    color:white;
    height: 50px;
-   text-align: justify;
+   padding: 10px;
+  }
+  .cards a{
+    display: none;
   }
 }

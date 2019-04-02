@@ -17,8 +17,11 @@ const CardFilm = (props) => {
         <CardBody>
           <CardTitle>{name}</CardTitle>
           {/* <CardText>{onTheater}</CardText> */}
-          <a href={url} target="_blank" rel="noopener noreferrer"><Button>More info</Button></a>
-          <a href={videoUrl} target="_blank" rel="noopener noreferrer"><Button>Official Trailer</Button></a>
+          <a href={url} target="_blank" rel="noopener noreferrer" ><Button className="a">More info</Button></a>
+          <a href={videoUrl} target="_blank" rel="noopener noreferrer"><Button className="a">Official Trailer</Button></a>
+          <Button className="admin">Modifier</Button>
+          <Button className="admin">Delete</Button>
+
         </CardBody>
       </Card>
   );
