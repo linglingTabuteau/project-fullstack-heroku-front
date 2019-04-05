@@ -1,17 +1,23 @@
 const { Router } = require('express');
 const router = Router();
-const connection = require('./conf');
+const { Client } = require('pg');
 const passport = require('passport');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
+// connection à la bae donnée de Heroku
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true,
+});
+client.connect();
 
 /* GET index page. */
 
 // get /films
 router.get('/films', (req, res) => {
   // connection à la base de données, et sélection des employés
-  connection.query('SELECT * from ghibli_film', (err, results) => {
+  client.query('SELECT * from ghibli_film', (err, results) => {
     if (err) {
       // Si une erreur est survenue, alors on informe l'utilisateur de l'erreur
       res.status(500).send('Erreur lors de la récupération des films');
@@ -26,7 +32,7 @@ router.get('/films', (req, res) => {
 router.post('/films', (req, res) => {
   const formData = req.body;
   console.log('formData:', formData);
-  connection.query('INSERT INTO ghibli_film SET ?', formData, (err) => {
+  client.query('INSERT INTO ghibli_film SET ?', formData, (err) => {
     if (err) {
       console.log('err:', err);
       res.status(500).send('Erreur lors de rejouter un film');
@@ -40,7 +46,7 @@ router.post('/films', (req, res) => {
 router.get('/results', (req, res) => {
   console.log('req.query', req.query);
   const keyword = `%${req.query.keyword}%`;
-  connection.query('SELECT * FROM ghibli_film WHERE name LIKE ?', keyword, (err, results) => {
+  client.query('SELECT * FROM ghibli_film WHERE name LIKE ?', keyword, (err, results) => {
     if (err) {
       res.sendStatus(500);
     } else {
@@ -62,7 +68,7 @@ router.post('/auth/signup', (req, res) => {
     lastname: req.body.lastname,
     passwordconfirm: req.body.passwordconfirm,
   }
-  connection.query('INSERT INTO users SET ?', newUser, (err) => {
+  client.query('INSERT INTO users SET ?', newUser, (err) => {
     if (err) {
       res.status(500).send('Erreur lors de creat an account');
     } else {
