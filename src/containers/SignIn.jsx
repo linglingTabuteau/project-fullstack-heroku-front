@@ -42,7 +42,7 @@ class SignIn extends Component {
       }),
       body: JSON.stringify(this.state),
     };
-    fetch(`${'https://project-fullstack-heroku-back.herokuapp.com/api'}/signin`, config)
+    fetch(`${process.env.REACT_APP_API}/signin`, config)
       .then((res) => {
         if (res.status === 400) {
          console.log('res.statusText', res.statusText);

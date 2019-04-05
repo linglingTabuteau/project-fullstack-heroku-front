@@ -21,7 +21,7 @@ class MyProfile extends Component {
   componentDidMount() {
     const { profile } = this.state;
     const { token } = this.props;
-    fetch(`${'https://project-fullstack-heroku-back.herokuapp.com/api'}/profile`,
+    fetch(`${process.env.REACT_APP_API}/profile`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

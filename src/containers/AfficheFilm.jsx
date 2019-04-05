@@ -12,7 +12,7 @@ import CardFilm from '../components/CardFilm';
 class AfficheFilm extends Component {
   componentDidMount() {
     const { dataResults } = this.props;
-    dataResults(`${'https://project-fullstack-heroku-back.herokuapp.com/api'}/films`);
+    dataResults(`${process.env.REACT_APP_API}/films`);
   }
 
   render() {

@@ -36,7 +36,7 @@ class ModifyFilm extends Component {
       },
       body: JSON.stringify(this.state),
     };
-    fetch(`${'https://project-fullstack-heroku-back.herokuapp.com/api'}/films`, config)
+    fetch(`${process.env.REACT_APP_API}/films`, config)
       .then(res => res.text())
       .then((res) => {
         if (res === 'ok') {
