@@ -15,7 +15,7 @@ class SearchResults extends Component {
     // back waits for a parameter req.query.keyword
     console.log('location', location);
     initState();
-    resultFilms(`http://localhost:5000/api/results${location.search}`);
+    resultFilms(`${process.env.API}/results${location.search}`);
   }
 
   render() {

@@ -12,7 +12,8 @@ import CardFilm from '../components/CardFilm';
 class AfficheFilm extends Component {
   componentDidMount() {
     const { dataResults } = this.props;
-    dataResults('http://localhost:5000/api/films');
+    console.log(`${process.env.API}`);
+    dataResults(`${process.env.API}/films`);
   }
 
   render() {
