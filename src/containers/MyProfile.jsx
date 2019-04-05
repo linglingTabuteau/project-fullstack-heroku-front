@@ -21,7 +21,7 @@ class MyProfile extends Component {
   componentDidMount() {
     const { profile } = this.state;
     const { token } = this.props;
-    fetch('http://localhost:5000/api/profile',
+    fetch(`${process.env.API}/profile`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

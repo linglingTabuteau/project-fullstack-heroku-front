@@ -42,7 +42,7 @@ class SignIn extends Component {
       }),
       body: JSON.stringify(this.state),
     };
-    fetch('http://localhost:5000/api/signin', config)
+    fetch(`${process.env.API}/signin`, config)
       .then((res) => {
         if (res.status === 400) {
          console.log('res.statusText', res.statusText);

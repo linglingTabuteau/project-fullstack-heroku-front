@@ -36,7 +36,7 @@ class ModifyFilm extends Component {
       },
       body: JSON.stringify(this.state),
     };
-    fetch('http://localhost:5000/api/films', config)
+    fetch(`${process.env.API}/films`, config)
       .then(res => res.text())
       .then((res) => {
         if (res === 'ok') {

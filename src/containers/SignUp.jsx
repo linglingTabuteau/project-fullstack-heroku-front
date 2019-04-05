@@ -34,7 +34,7 @@ class SignUp extends Component {
   handleSubmit(e) {
     e.preventDefault();
     fetch(
-      'http://localhost:5000/api/auth/signup',
+      `${process.env.API}/signup`,
       {
         method: 'POST',
         headers: new Headers({

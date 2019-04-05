@@ -35,7 +35,7 @@ class NavBar extends React.Component {
     const cookies = new Map(document.cookie.split('; ').map((e) => e.split('=')));
     const token = cookies.get('token');
     if (token) {
-      fetch('http://localhost:5000/api/profile',
+      `${process.env.API}/profile`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
