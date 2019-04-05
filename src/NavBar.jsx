@@ -35,7 +35,7 @@ class NavBar extends React.Component {
     const cookies = new Map(document.cookie.split('; ').map((e) => e.split('=')));
     const token = cookies.get('token');
     if (token) {
-      fetch(`${process.env.API}/profile`,
+      fetch(`${'https://project-fullstack-heroku-back.herokuapp.com/api'}/profile`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

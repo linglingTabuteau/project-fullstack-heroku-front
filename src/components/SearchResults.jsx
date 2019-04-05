@@ -15,7 +15,7 @@ class SearchResults extends Component {
     // back waits for a parameter req.query.keyword
     console.log('location', location);
     initState();
-    resultFilms(`${process.env.API}/results${location.search}`);
+    resultFilms(`${'https://project-fullstack-heroku-back.herokuapp.com/api'}/results${location.search}`);
   }
 
   render() {

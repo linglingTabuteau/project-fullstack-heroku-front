@@ -34,7 +34,7 @@ class SignUp extends Component {
   handleSubmit(e) {
     e.preventDefault();
     fetch(
-      `${process.env.API}/signup`,
+      `${'https://project-fullstack-heroku-back.herokuapp.com/api'}/signup`,
       {
         method: 'POST',
         headers: new Headers({

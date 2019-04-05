@@ -36,7 +36,7 @@ class AddFilm extends Component {
       },
       body: JSON.stringify(this.state),
     };
-    fetch(`${process.env.API}/films`, config)
+    fetch(`${'https://project-fullstack-heroku-back.herokuapp.com/api'}/films`, config)
       .then(res => res.text())
       .then((res) => {
         if (res === 'ok') {
