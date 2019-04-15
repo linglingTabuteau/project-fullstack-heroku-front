@@ -86,9 +86,9 @@ class SignIn extends Component {
               required
             />
           </FormGroup>
-          <Button>Sign In</Button>
+          <Button>SIGN IN</Button>
         </Form>
-        <Link to="/signup"><Button className="button">CREAT AN ACCOUNT</Button></Link>
+        <Link to="/signup"><Button className="button">CREATE AN ACCOUNT</Button></Link>
       </Container>
     );
   }

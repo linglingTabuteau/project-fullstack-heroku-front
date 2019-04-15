@@ -61,20 +61,22 @@ class NavBar extends React.Component {
   }
 
   toggle() {
+    const { isOpen } = this.state;
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpen: !isOpen,
     });
   }
 
   render() {
     const { user } = this.props;
+    const { isOpen } = this.state;
     return (
       <div className="NavBar">
         {/* attention: faut enlever light dans Navbar pour changer la color de NavItem */}
         <Navbar color="light" light expand="md" className="nav">
           <NavbarBrand href="/" style={{ color: 'rgb(126, 211, 69)' }}>MEMORY GHIBLI</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
+          <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
                 <Link to="/affichefilm"><NavLink to="/affichefilm" style={{ color: 'rgb(126, 211, 69)' }}>List All films</NavLink></Link>
@@ -100,7 +102,7 @@ class NavBar extends React.Component {
                               <DropdownItem className="drop" tag={Link} to="/admin">Administrateur</DropdownItem>
                             )
                             : (
-                              <DropdownItem></DropdownItem>
+                              <DropdownItem />
                             )
                         }
                       </DropdownMenu>

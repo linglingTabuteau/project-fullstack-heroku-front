@@ -26,7 +26,7 @@ class AddFilm extends Component {
     });
   }
 
-  handleAddFilm(e) {
+  async handleAddFilm(e) {
     const { history } = this.props;
     e.preventDefault();
     const config = {
