@@ -15,11 +15,11 @@ class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: 'test@test.com',
-      password: 'lingling',
-      passwordconfirm: 'lingling',
-      name: 'lingling',
-      lastname: 'Tabuteau',
+      email: '',
+      password: '',
+      passwordconfirm: '',
+      name: '',
+      lastname: '',
     };
     this.handleUpdatelField = this.handleUpdatelField.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
