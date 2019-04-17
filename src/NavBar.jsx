@@ -79,7 +79,7 @@ class NavBar extends React.Component {
           <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <Link to="/affichefilm"><NavLink to="/affichefilm" style={{ color: 'rgb(126, 211, 69)' }}>List All films</NavLink></Link>
+                <NavLink tag={Link} to="/affichefilm" style={{ color: 'rgb(126, 211, 69)' }}>List All films</NavLink>
               </NavItem>
               {
                 user.email === ''
