@@ -17,7 +17,7 @@ class SignUp extends Component {
     this.state = {
       email: '',
       password: '',
-      passwordconfirm: '',
+      // passwordconfirm: '',
       name: '',
       lastname: '',
     };
@@ -51,7 +51,7 @@ class SignUp extends Component {
 
   render() {
     const {
-      email, password, passwordconfirm, name, lastname,
+      email, password, name, lastname,
     } = this.state;
     return (
       <Container className="SignUp">
@@ -81,7 +81,7 @@ class SignUp extends Component {
               required
             />
           </FormGroup>
-          <FormGroup>
+          {/* <FormGroup>
             <Label for="examplePassword">Password Confirm</Label>
             <Input
               type="password"
@@ -92,7 +92,7 @@ class SignUp extends Component {
               placeholder="confirm your password"
               required
             />
-          </FormGroup>
+          </FormGroup> */}
           <FormGroup>
             <Label for="name">Name</Label>
             <Input
