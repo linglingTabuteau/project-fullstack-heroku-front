@@ -85,7 +85,7 @@ class NavBar extends React.Component {
                 user.email === ''
                   ? (
                     <NavItem>
-                      <NavLink tag={Link} to="/signin" style={{ color: 'rgb(126, 211, 69)' }}>Sign In</NavLink>
+                      <NavLink tag={Link} to="/signin" style={{ color: 'rgb(126, 211, 69)' }}>Sign In/Sign Up</NavLink>
                     </NavItem>
                   )
                   : (
