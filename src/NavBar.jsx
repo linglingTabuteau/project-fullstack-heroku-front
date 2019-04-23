@@ -10,21 +10,20 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { logout, signinAuth, autoLoginAuth } from './actions/signin';
-
 import './NavBar.scss';
 
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: false
+      isOpen: false,
     };
     this.toggle = this.toggle.bind(this);
     this.doLogout = this.doLogout.bind(this);
