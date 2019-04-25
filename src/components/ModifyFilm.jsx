@@ -4,7 +4,6 @@ import {
 } from 'reactstrap';
 import './ModifyFilm.scss';
 import { withRouter } from 'react-router';
-import InfoBullModal from './InfoBullModal';
 
 class ModifyFilm extends Component {
   constructor(props) {
